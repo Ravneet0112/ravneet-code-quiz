@@ -17,6 +17,9 @@
 }
 
 
+
+
+/*
 .score{
     display: flex;
     justify-items: space-between;
@@ -39,20 +42,19 @@
 .nav li #timer{
     justify-items: flex-end;
 }
-
-
+*/
 .welcome-page{
     display: block;
 }
 
-#question-container #answer-button{
+#question-container #answer-buttons{
     display: grid;
     justify-items: flex-start;
     padding: 10px;
     gap: 10px;
 }
 
-#question-container #answer-button #btn{
+#btn-grid{
     gap: 10px;
     display: flex;
     background-color: blue;
@@ -62,4 +64,13 @@
 .btn{
     background-color: blue;
     color: white;
+    display: flex;
+}
+
+.welcome-page .hide{
+    display: none;
+}
+
+#question-container .hide{
+    display: none;
 }

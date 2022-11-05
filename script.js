@@ -1,33 +1,33 @@
+const welcomeEl = document.getElementsByClassName("welcome-page")
 const startButton = document.getElementById("start-btn")
-const questionContainerElement = document.getElementById('question-container')
-const questionElement = document.getElementById('question')
-const answerButtonsElement = document.getElementById('answer-buttons')
-
-
+const questionContainerEl = document.getElementById('question-container')
+const questionEl = document.getElementById('question')
+const answerButtonsEl = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
-//nextButton.addEventListener('click', () => {
-//  currentQuestionIndex++
-//  setNextQuestion()
-//})
+answerButtonsEl.addEventListener('click', () => {
+  currentQuestionIndex++
+  setNextQuestion()
+})
 
 function startGame() {
-  startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
-  questionContainerElement.classList.remove('hide')
- // setNextQuestion()
+  questionContainerEl.classList.remove('hide')
+  setNextQuestion()
 }
 
-//function setNextQuestion() {
- // resetState()
- // showQuestion(shuffledQuestions[currentQuestionIndex])
-//}
+function setNextQuestion() {
+ resetState()
+ showQuestion(shuffledQuestions[currentQuestionIndex])
+}
 
 function showQuestion(question) {
-  questionElement.innerText = question.question
+  questionContainerEl.classList.remove('hide')
+  welcomeEl.classList.remove('hide')
+  questionEl.innerText = question.question
   question.answers.forEach(answer => {
     const button = document.createElement('button')
     button.innerText = answer.text
@@ -36,15 +36,15 @@ function showQuestion(question) {
       button.dataset.correct = answer.correct
     }
     button.addEventListener('click', selectAnswer)
-    answerButtonsElement.appendChild(button)
+    answerButtonsEl.appendChild(button)
   })
 }
 
 function resetState() {
   clearStatusClass(document.body)
- // nextButton.classList.add('hide')
-  while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+ 
+  while (answerButtonsEl.firstChild) {
+    answerButtonsEl.removeChild(answerButtonsEl.firstChild)
   }
 }
 
@@ -52,7 +52,7 @@ function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
+  Array.from(answerButtonsEl.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
