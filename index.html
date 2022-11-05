@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quiz Challenge</title>
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+
+<body>
+
+    <nav class = score>
+        <ul>
+            <li id="highscore"> View Highscore</li>
+            <li id="timer"> Timer:</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="welcome-page">
+        <h2> Coding Quiz Challenge</h2>
+        <h4> Try to answer the following code-related question with-in 
+            the time limit. Keep in mind that incorrect answers will penalized
+            and reduce time by ten seconds!
+        </h4>
+            <div class = "controls">
+            <button id="start-btn" class="start-btn btn"> Start Quiz</button>
+            </div>
+        </div>
+        <div id="question-container" class="hide">
+            <div id = "question">Question </div>
+            <div id = "answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
